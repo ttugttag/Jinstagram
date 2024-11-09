@@ -1,0 +1,5 @@
+id,password,last_login,name,email,nickname,profile_image
+1,pbkdf2_sha256$260000$kbotLcoUK5NtcwUrC0A4IG$t41e/PuSX22Ve+lnMjxeREl4qaFOkg+LSaOVHqctE4Q=,,이름 admin,admin@admin.com,admin,2c7a957cfb2f40038c5221f0c09d968b
+2,pbkdf2_sha256$260000$DYw9R6kZpQqKP09XtBS5YN$yPhzawmImOf6NfPNCdakajBAhQ3YAjBODOedFNd74Gw=,,이름 test,test@test.com,test,c05f18e34bb346bda2588d1b13fcaf61
+3,pbkdf2_sha256$260000$1dhF3sKnojagAHNMgtaDV8$ITzTxy1IDKBEQG0ER9HAeFOHwX8pSLkdl0MoMV4SbuE=,,이름 default,default@default.com,default,1b3991b427654524887b590a0f39344d
+4,pbkdf2_sha256$260000$Of1w3HWDfYdzfgKbZcK8zv$X41hs3UHAqB4f1iKIrHxysTe+JZNRI5PZOwn7H8OX/I=,,이름 aaa,aaa@aaa.com,aaa,38097998024047ed96a5db8c348cf154

@@ -1,0 +1,37 @@
+{% extends "chart/index.html" %}
+{% load static %}
+{% block mainsection %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% load plotly_dash %}
+    <container style="margin:20px">
+        <h5>simpleexample</h5>
+        <div class="{% plotly_class name='simpleexample' %} card">
+            {% plotly_app name='simpleexample' ratio=0.3 %}
+        </div>
+        <h5>views.py에서 제어</h5>
+        <div class="{% plotly_class name='simpleexample' %} card">
+            {{ plot1|safe }}
+        </div>
+        <h5>radio_usage</h5>
+        <div class="{% plotly_class name='radio_usage' %} card">
+            {% plotly_app name='radio_usage' ratio=0.3 %}
+        </div>
+        <h5>callback_usage</h5>
+        <div class="{% plotly_class name='callback_usage' %} card">
+            {% plotly_app name='callback_usage' ratio=0.3 %}
+        </div>
+        <h5>Connecting_to_Data</h5>
+        <div class="{% plotly_class name='Connecting_to_Data' %} card">
+            {% plotly_app name='Connecting_to_Data' ratio=0.3 %}
+        </div>
+        <h5>Update_Graphs_on_Hover</h5>
+        <div class="{% plotly_class name='Update_Graphs_on_Hover' %} card">
+            {% plotly_app name='Update_Graphs_on_Hover' ratio=0.3 %}
+        </div>
+        <h5>Generic_Crossfilter_Recipe</h5>
+        <div class="{% plotly_class name='Generic_Crossfilter_Recipe' %} card">
+            {% plotly_app name='Generic_Crossfilter_Recipe' ratio=0.3 %}
+        </div>
+    </container>
+{% endblock %}
+

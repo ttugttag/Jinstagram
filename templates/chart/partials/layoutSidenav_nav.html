@@ -1,0 +1,105 @@
+{% load static %}
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Core</div>
+                <a class="nav-link" href="{% url 'chart:Index' %}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Dashboard
+                </a>
+
+                <div class="sb-sidenav-menu-heading">Interface</div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Layouts
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{% url 'chart:Static' %}">Static Navigation</a>
+                        <a class="nav-link" href="{% url 'chart:Light' %}">Light Sidenav</a>
+                    </nav>
+                </div>
+
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Pages
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+<!--                        # Auth-->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                            Authentication
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'user:Login' %}">Login</a>
+                                <a class="nav-link" href="{% url 'user:Join' %}">Register</a>
+                                <a class="nav-link" href="password.html">Forgot Password</a>
+                            </nav>
+                        </div>
+
+<!--                        # chartjs-->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseChartjs" aria-expanded="false" aria-controls="pagesCollapseChartjs">
+                            Chartjs
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseChartjs" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'chart:AddData' %}">AddData</a>
+                                <a class="nav-link" href="{% url 'chart:ChangeChart' %}">ChangeChart</a>
+                                <a class="nav-link" href="">미정</a>
+                            </nav>
+                        </div>
+
+<!--                        # plotly-->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsePlotly" aria-expanded="false" aria-controls="pagesCollapsePlotly">
+                            Plotly
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapsePlotly" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'chart:Plotly_Sample' %}">Plotly Sample</a>
+                                <a class="nav-link" href="{% url 'chart:Plotly_Basic' %}">Plotly Basic</a>
+                                <a class="nav-link" href="{% url 'chart:Plotly_Advance' %}">Plotly Advance</a>
+                                <a class="nav-link" href="">미정</a>
+                            </nav>
+                        </div>
+
+<!--                        # matplot-->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseMatplot" aria-expanded="false" aria-controls="pagesCollapseMatplot">
+                            Matplot
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseMatplot" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'chart:Matplotlib_Sample' %}">Matplotlib Sample</a>
+                                <a class="nav-link" href="{% url 'chart:Matplotlib_Basic' %}">Matplotlib Basic</a>
+                                <a class="nav-link" href="{% url 'chart:Matplotlib_Advance' %}">Matplotlib Advance</a>
+                                <a class="nav-link" href="">미정</a>
+                            </nav>
+                        </div>
+
+                    </nav>
+                </div>
+
+                <div class="sb-sidenav-menu-heading">Addons</div>
+                <a class="nav-link" href="{% url 'chart:MultiChart' %}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    Charts
+                </a>
+                <a class="nav-link" href="{% url 'chart:Tables' %}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Tables
+                </a>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            <div style="color:darkblue; font-size:1.4em">{{ user.nickname }}</div>님 환영합니다.
+        </div>
+    </nav>
+</div>

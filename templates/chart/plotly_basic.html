@@ -1,0 +1,13 @@
+{% extends "chart/index.html" %}
+{% load static %}
+{% block mainsection %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% load plotly_dash %}
+<container style="margin:20px">
+    <h1>Plotly_Basic</h1>
+    <div class="{% plotly_class name='Plotly_Basic' %} card">
+        {% plotly_app name='Plotly_Basic' ratio=0.3 %}
+    </div>
+</container>
+{% endblock %}
+

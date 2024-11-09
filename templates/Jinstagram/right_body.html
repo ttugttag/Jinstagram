@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<div class="feed_name" style="justify-content: space-between">
+  <div style="display: flex; align-items: center; ">
+    <div class="big_profile_box">
+      <img class="profile_img" src="{% get_media_prefix %}{{ user.profile_image }}">
+    </div>
+    <div class="name_content">
+      <span class="feed_name_txt">{{ user.nickname }}</span>
+      <span class="name_content_txt">{{ user.name }}</span>
+    </div>
+  </div>
+  <a href="/user/login/" class="link_txt" >전환</a>
+</div>
+<div class="recommend_box">
+  <span style="color: gray"> 회원님을 위한 추천</span>
+  <span style="font-size: 12px"> 모두 보기 </span>
+</div>
+{% for all_user in all_user %}
+<div class="feed_name" style="justify-content: space-between">
+  <div class="profile_box">
+    <img class="profile_img" src="{% get_media_prefix %}{{ all_user.profile_image }}">
+  </div>
+  <div class="name_content">
+    <span class="feed_name_txt">{{ all_user.nickname }}</span>
+    <span class="name_content_txt">{{ all_user.name }}</span>
+  </div>
+  <div class="name_content">
+    <span class="feed_name_txt">추천</span>
+    <span class="name_content_txt">{{all_user.follow_count}}</span>
+  </div>
+  <span id="follow_{{ all_user.id }}" follow_id="{{ all_user.id }}" class="follow material-icons-outlined" style="color: red;cursor: pointer">
+    {% if all_user.is_follow %}person_add
+    {% else %}person
+    {% endif %}
+  </span>
+</div>
+{% endfor %}
+<div class="comment_box">
+    <span> 인스타그램 malri 코딩 </span>
+    <span> https://malri.tistory.com </span>
+    <br>
+    <span> @2021 malri.99 </span>
+</div>
+
+<script>
+$(".follow").click(function (event) {
+    let follow_id = event.target.attributes.getNamedItem('follow_id').value;
+    let person_id = event.target.id;
+    console.log(person_id);
+    let follow_text = $.trim($('#' + person_id).html());
+    console.log(follow_text);
+    if (follow_text == 'person') {
+        $('#' + person_id).html('person_add');
+    } else {
+        $('#' + person_id).html('person');
+    }
+
+    $.ajax({
+        url: "/content/follow/",
+        data: {
+            follow_id: follow_id,
+            follow_text: follow_text
+        },
+        method: "POST",
+        success: function (data) {
+            console.log("성공");
+            location.reload("/main/")
+        },
+        error: function (request, status, error) {
+            console.log("에러");
+        },
+        complete: function () {
+            console.log("완료");
+        }
+    });
+});
+</script>
